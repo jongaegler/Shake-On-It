@@ -11,7 +11,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
-gem 'grape'
+gem 'active_model_serializers'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
