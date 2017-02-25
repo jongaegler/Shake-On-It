@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :trackable, :validatable
 
-  has_many :agreements
-
+  has_many :user_agreements
+  has_many :agreements, through: :user_agreements
   validates_presence_of :email
 end
