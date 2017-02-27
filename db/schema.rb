@@ -14,15 +14,19 @@ ActiveRecord::Schema.define(version: 20170225222311) do
 
   create_table "agreements", force: :cascade do |t|
     t.datetime "ends_on"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "users_required", default: 2
+    t.decimal  "default_amount"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "user_agreements", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "agreement_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "agreed",       default: false
+    t.boolean  "amount"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["agreement_id"], name: "index_user_agreements_on_agreement_id"
     t.index ["user_id"], name: "index_user_agreements_on_user_id"
   end
